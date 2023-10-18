@@ -23,7 +23,7 @@ int main() {
         if (bmi < 18.5) {
             printf("Kategori BMI: Kurang berat badan\n");
         } else if (bmi >= 18.5 && bmi < 24.9) {
-            printf("Kategori BMI: Normal\n");
+            printf("Kategori BMI: Ideal\n");
         } else if (bmi >= 25 && bmi < 29.9) {
             printf("Kategori BMI: Kelebihan berat badan\n");
         } else {
@@ -43,7 +43,7 @@ int main() {
         if (bmi < 18.5) {
             printf("Kategori BMI: Kurang berat badan\n");
         } else if (bmi >= 18.5 && bmi < 23.9) {
-            printf("Kategori BMI: Normal\n");
+            printf("Kategori BMI: Ideal\n");
         } else if (bmi >= 24 && bmi < 28.9) {
             printf("Kategori BMI: Kelebihan berat badan\n");
         } else {
