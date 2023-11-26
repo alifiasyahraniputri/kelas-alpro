@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-void displaiNilaiAkhir(int nilaiAkhir, char grade);
+void displaiNilaiAkhir(int *nilaiAkhir, char *grade);
 
-int calcNilai(char nama[50], int NIM, int tugas, int quiz, int UTS, int UAS) {
+void calcNilai(char nama[50], int NIM, int tugas, int quiz, int UTS, int UAS) {
     int nilaiAkhir;
-    char grade[15], keterangan;
+    char grade[15];
+
 
     printf("====PERHITUNGAN NILAI AKHIR====\n");
     printf("nama mahasiswa : "); scanf("%s", nama);
@@ -15,29 +17,29 @@ int calcNilai(char nama[50], int NIM, int tugas, int quiz, int UTS, int UAS) {
     printf("nilai UTS : "); scanf("%d", &UTS);
     printf("nilai UAS : "); scanf("%d", &UAS);
 
-    nilaiAkhir = ((tugas*0.1)+(quiz*0.2)+(UTS*0.3)+(UAS*0.4));
+    nilaiAkhir = ((tugas * 0.1) + (quiz * 0.2) + (UTS * 0.3) + (UAS * 0.4));
 
     if (nilaiAkhir > 90) {
-       strcpy(grade, "A");
-       printf("Lulus");
+        strcpy(grade, "A");
+        printf("Lulus");
     } else if (nilaiAkhir >= 81 && nilaiAkhir <= 90) {
-       strcpy(grade, "AB");
+        strcpy(grade, "AB");
         printf("Lulus");
     } else if (nilaiAkhir >= 71 && nilaiAkhir <= 80) {
-       strcpy(grade, "B");
+        strcpy(grade, "B");
         printf("Lulus");
     } else if (nilaiAkhir >= 61 && nilaiAkhir <= 70) {
         strcpy(grade, "BC");
-         printf("Lulus");
+        printf("Lulus");
     } else if (nilaiAkhir >= 51 && nilaiAkhir <= 60) {
         strcpy(grade, "C");
-         printf("Lulus");
+        printf("Lulus");
     } else if (nilaiAkhir >= 45 && nilaiAkhir <= 50) {
         strcpy(grade, "D");
-         printf("Tidak Lulus");
+        printf("Tidak Lulus");
     } else {
         strcpy(grade, "E");
-         printf("Tidak Lulus");
+        printf("Tidak Lulus");
     }
 
     printf("\n====HASIL====\n");
@@ -50,13 +52,13 @@ int calcNilai(char nama[50], int NIM, int tugas, int quiz, int UTS, int UAS) {
     printf("Nilai Akhir : %d\n", nilaiAkhir);
     printf("Grade : %s\n", grade);
 
-    displaiNilaiAkhir(nilaiAkhir, *grade);
+    displaiNilaiAkhir(&nilaiAkhir, grade);
 }
 
-void displaiNilaiAkhir(int nilaiAkhir, char grade) {
+void displaiNilaiAkhir(int *nilaiAkhir, char *grade) {
     printf("\n====DISPLAY NILAI AKHIR====\n");
-    printf("Nilai akhir : %d\n", nilaiAkhir);
-    printf("Grade : %c\n", grade);
+    printf("Nilai akhir : %d\n", *nilaiAkhir);
+    printf("Grade : %s\n", grade);
 }
 
 int main() {
@@ -65,6 +67,5 @@ int main() {
 
     calcNilai(nama, NIM, tugas, quiz, UTS, UAS);
 
-return 0;
-
+    return 0;
 }
